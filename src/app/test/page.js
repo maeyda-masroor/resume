@@ -10,8 +10,10 @@ const FormToPDF = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+ 
+  
   const generatePDF = () => {
+    if (typeof window !== 'undefined') {
     const element = pdfRef.current;
 
     const options = {
@@ -23,6 +25,7 @@ const FormToPDF = () => {
     };
 
     html2pdf().from(element).set(options).save();
+  }
   };
   const StarRating = ({ rating }) => {
     const maxStars = 5;

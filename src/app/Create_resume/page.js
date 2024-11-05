@@ -3,6 +3,8 @@
 import html2pdf from 'html2pdf.js';
 import { useRef } from 'react';
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
+
 const steps = [
   {
     title: 'About',
@@ -33,7 +35,8 @@ const steps = [
     ],
   },
 ];
-export default function CreateResume(){
+export default function CreateResume()
+{
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState({});
   const cvRef = useRef();
