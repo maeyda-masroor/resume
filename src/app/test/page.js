@@ -1,7 +1,8 @@
 // pages/FormToPDF.js
 "use client"
 import React, { useRef, useState } from 'react';
-import html2pdf from 'html2pdf.js';
+import dynamic from 'next/dynamic';
+const html2pdf = dynamic(() => import('html2pdf.js'), { ssr: false });
 
 const FormToPDF = () => {
   const [formData, setFormData] = useState({ name: '', email: '', bio: '' , rating:' ' });
