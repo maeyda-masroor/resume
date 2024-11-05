@@ -13,7 +13,6 @@ const FormToPDF = () => {
  
   
   const generatePDF = () => {
-    if (typeof window !== 'undefined') {
     const element = pdfRef.current;
 
     const options = {
@@ -25,8 +24,13 @@ const FormToPDF = () => {
     };
 
     html2pdf().from(element).set(options).save();
-  }
   };
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Optional: You can trigger PDF generation here or keep it in a button click
+      generatePDF();
+    }
+  }, []);
   const StarRating = ({ rating }) => {
     const maxStars = 5;
     const filledStars = '★'.repeat(rating);
