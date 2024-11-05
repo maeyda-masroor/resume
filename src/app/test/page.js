@@ -1,8 +1,7 @@
 // pages/FormToPDF.js
 "use client"
 import React, { useRef, useState } from 'react';
-import dynamic from 'next/dynamic';
-const html2pdf = dynamic(() => import('html2pdf.js'), { ssr: false });
+
 
 const FormToPDF = () => {
   const [formData, setFormData] = useState({ name: '', email: '', bio: '' , rating:' ' });
@@ -24,14 +23,7 @@ const FormToPDF = () => {
       jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' },
     };
 
-    html2pdf().from(element).set(options).save();
-  };
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Optional: You can trigger PDF generation here or keep it in a button click
-      generatePDF();
-    }
-  }, []);
+      };
   const StarRating = ({ rating }) => {
     const maxStars = 5;
     const filledStars = '★'.repeat(rating);
