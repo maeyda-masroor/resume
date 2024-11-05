@@ -1,9 +1,7 @@
 // pages/TwoDivsGrid.tsx
 "use client"
-import html2pdf from 'html2pdf.js';
 import { useRef } from 'react';
 import React, { useState } from 'react';
-import dynamic from 'next/dynamic';
 
 const steps = [
   {
